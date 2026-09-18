@@ -3,99 +3,201 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function getCompletedLessons() {
-    return JSON.parse(
-        localStorage.getItem("learnovaCompletedLessons") || "[]"
-    );
+    try {
+        const data = localStorage.getItem(
+            "learnovaCompletedLessons"
+        );
+
+        const lessons = data
+            ? JSON.parse(data)
+            : [];
+
+        return Array.isArray(lessons)
+            ? lessons
+            : [];
+    } catch (error) {
+        return [];
+    }
 }
 
-function saveCompletedLessons(completedLessons) {
-    localStorage.setItem(
-        "learnovaCompletedLessons",
-        JSON.stringify(completedLessons)
-    );
+function saveCompletedLessons(
+    completedLessons
+) {
+    try {
+        localStorage.setItem(
+            "learnovaCompletedLessons",
+            JSON.stringify(completedLessons)
+        );
+
+        return true;
+    } catch (error) {
+        console.error(
+            "Could not save progress:",
+            error
+        );
+
+        return false;
+    }
 }
 
 function renderLessons() {
-    const lessonList = document.querySelector(".lesson-list");
+    const lessonList =
+        document.querySelector(
+            ".lesson-list"
+        );
 
     if (!lessonList) {
         return;
     }
 
-    const completedLessons = getCompletedLessons();
+    try {
+        const completedLessons =
+            getCompletedLessons();
 
-    lessonList.innerHTML = "";
+        lessonList.innerHTML = "";
 
-    lessons.forEach((lesson) => {
-        const isCompleted = completedLessons.includes(lesson.id);
+        if (
+            !Array.isArray(lessons) ||
+            lessons.length === 0
+        ) {
+            lessonList.innerHTML = `
+                <div class="error-message">
+                    No lessons are available.
+                </div>
+            `;
 
-        const article = document.createElement("article");
-        article.className = "lesson-card";
+            return;
+        }
 
-        article.innerHTML = `
-            <div>
-                <p>Lesson ${lesson.id}</p>
+        lessons.forEach((lesson) => {
+            const isCompleted =
+                completedLessons.includes(
+                    lesson.id
+                );
 
-                <h2>${lesson.title}</h2>
+            const article =
+                document.createElement(
+                    "article"
+                );
 
-                <p>${lesson.description}</p>
+            article.className =
+                "lesson-card";
 
-                <p>Duration: ${lesson.duration}</p>
+            article.innerHTML = `
+                <div>
+                    <p>
+                        Lesson ${lesson.id}
+                    </p>
 
-                ${
-                    isCompleted
-                        ? "<p><strong>Completed ✓</strong></p>"
-                        : ""
-                }
+                    <h2>
+                        ${lesson.title}
+                    </h2>
+
+                    <p>
+                        ${lesson.description}
+                    </p>
+
+                    <p>
+                        Duration:
+                        ${lesson.duration}
+                    </p>
+
+                    ${
+                        isCompleted
+                            ? `
+                                <p>
+                                    <strong>
+                                        Completed ✓
+                                    </strong>
+                                </p>
+                            `
+                            : ""
+                    }
+                </div>
+
+                <button
+                    type="button"
+                    data-lesson-id="${lesson.id}"
+                    ${
+                        isCompleted
+                            ? "disabled"
+                            : ""
+                    }
+                >
+                    ${
+                        isCompleted
+                            ? "Completed"
+                            : "Mark Complete"
+                    }
+                </button>
+            `;
+
+            lessonList.appendChild(
+                article
+            );
+        });
+
+        setupLessonButtons();
+
+    } catch (error) {
+        console.error(
+            "Could not render lessons:",
+            error
+        );
+
+        lessonList.innerHTML = `
+            <div class="error-message">
+                Something went wrong while
+                loading lessons.
             </div>
-
-            <button
-                type="button"
-                data-lesson-id="${lesson.id}"
-                ${
-                    isCompleted
-                        ? "disabled"
-                        : ""
-                }
-            >
-                ${
-                    isCompleted
-                        ? "Completed"
-                        : "Mark Complete"
-                }
-            </button>
         `;
-
-        lessonList.appendChild(article);
-    });
-
-    setupLessonButtons();
+    }
 }
 
 function setupLessonButtons() {
-    const buttons = document.querySelectorAll(
-        "[data-lesson-id]"
-    );
+    const buttons =
+        document.querySelectorAll(
+            "[data-lesson-id]"
+        );
 
     buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const lessonId = Number(
-                button.dataset.lessonId
-            );
+        button.addEventListener(
+            "click",
+            () => {
+                const lessonId =
+                    Number(
+                        button.dataset
+                            .lessonId
+                    );
 
-            completeLesson(lessonId);
-        });
+                completeLesson(
+                    lessonId
+                );
+            }
+        );
     });
 }
 
 function completeLesson(lessonId) {
-    const completedLessons = getCompletedLessons();
+    const completedLessons =
+        getCompletedLessons();
 
-    if (!completedLessons.includes(lessonId)) {
-        completedLessons.push(lessonId);
+    if (
+        !completedLessons.includes(
+            lessonId
+        )
+    ) {
+        completedLessons.push(
+            lessonId
+        );
     }
 
-    saveCompletedLessons(completedLessons);
+    const saved =
+        saveCompletedLessons(
+            completedLessons
+        );
 
-    renderLessons();
+    if (saved) {
+        renderLessons();
+    }
 }

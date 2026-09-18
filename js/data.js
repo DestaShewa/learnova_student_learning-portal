@@ -2,17 +2,20 @@ const subjects = [
     {
         id: "mathematics",
         name: "Mathematics",
-        description: "Algebra, equations, fractions and geometry."
+        description:
+            "Algebra, equations, fractions and geometry."
     },
     {
         id: "science",
         name: "Science",
-        description: "Important scientific concepts and ideas."
+        description:
+            "Important scientific concepts and ideas."
     },
     {
         id: "english",
         name: "English",
-        description: "Grammar, vocabulary and communication."
+        description:
+            "Grammar, vocabulary and communication."
     }
 ];
 

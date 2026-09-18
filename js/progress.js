@@ -1,68 +1,144 @@
 document.addEventListener("DOMContentLoaded", () => {
     updateProgressPage();
+    setupResetButton();
 });
 
 function getCompletedLessons() {
-    return JSON.parse(
-        localStorage.getItem("learnovaCompletedLessons") || "[]"
-    );
+    try {
+        const data =
+            localStorage.getItem(
+                "learnovaCompletedLessons"
+            );
+
+        const completedLessons =
+            data
+                ? JSON.parse(data)
+                : [];
+
+        return Array.isArray(
+            completedLessons
+        )
+            ? completedLessons
+            : [];
+
+    } catch (error) {
+        return [];
+    }
 }
 
 function getQuizScore() {
-    return Number(
-        localStorage.getItem("learnovaQuizScore") || 0
-    );
+    const score =
+        Number(
+            localStorage.getItem(
+                "learnovaQuizScore"
+            ) || 0
+        );
+
+    return Number.isFinite(score)
+        ? score
+        : 0;
+}
+
+function getQuizAttempts() {
+    const attempts =
+        Number(
+            localStorage.getItem(
+                "learnovaQuizAttempts"
+            ) || 0
+        );
+
+    return Number.isFinite(attempts)
+        ? attempts
+        : 0;
 }
 
 function updateProgressPage() {
-    const completedLessons = getCompletedLessons();
+    try {
+        const completedLessons =
+            getCompletedLessons();
 
-    const totalLessons = lessons.length;
+        const totalLessons =
+            lessons.length;
 
-    const overallProgress =
-        totalLessons === 0
-            ? 0
-            : Math.round(
-                (completedLessons.length / totalLessons) * 100
-            );
+        const overallProgress =
+            totalLessons === 0
+                ? 0
+                : Math.round(
+                    (completedLessons.length /
+                        totalLessons) *
+                        100
+                );
 
-    const progressElement = document.querySelector(
-        "progress"
-    );
+        updateOverallProgress(
+            overallProgress
+        );
+
+        updateSubjectProgress(
+            completedLessons
+        );
+
+        updateQuizProgress();
+
+    } catch (error) {
+        console.error(
+            "Could not update progress:",
+            error
+        );
+    }
+}
+
+function updateOverallProgress(
+    overallProgress
+) {
+    const progressElement =
+        document.querySelector(
+            "progress"
+        );
 
     if (progressElement) {
-        progressElement.value = overallProgress;
-        progressElement.textContent = `${overallProgress}%`;
+        progressElement.value =
+            overallProgress;
+
+        progressElement.textContent =
+            `${overallProgress}%`;
     }
 
-    const progressText = document.querySelector(
-        "[data-overall-progress]"
-    );
+    const progressText =
+        document.querySelector(
+            "[data-overall-progress]"
+        );
 
     if (progressText) {
         progressText.textContent =
             `${overallProgress}% Complete`;
     }
-
-    updateSubjectProgress(completedLessons);
-    updateQuizProgress();
 }
 
-function updateSubjectProgress(completedLessons) {
-    const tableBody = document.querySelector("tbody");
+function updateSubjectProgress(
+    completedLessons
+) {
+    const tableBody =
+        document.querySelector(
+            "tbody"
+        );
 
     if (!tableBody) {
         return;
     }
 
-    const mathematicsLessons = lessons.filter(
-        (lesson) =>
-            lesson.subject === "Mathematics"
-    );
+    const mathematicsLessons =
+        lessons.filter(
+            (lesson) =>
+                lesson.subject ===
+                "Mathematics"
+        );
 
     const completedMathLessons =
-        mathematicsLessons.filter((lesson) =>
-            completedLessons.includes(lesson.id)
+        mathematicsLessons.filter(
+            (lesson) =>
+                completedLessons.includes(
+                    lesson.id
+                )
         ).length;
 
     const mathematicsProgress =
@@ -76,21 +152,38 @@ function updateSubjectProgress(completedLessons) {
 
     tableBody.innerHTML = `
         <tr>
-            <th scope="row">Mathematics</th>
-            <td>${completedMathLessons}</td>
-            <td>${mathematicsLessons.length}</td>
-            <td>${mathematicsProgress}%</td>
+            <th scope="row">
+                Mathematics
+            </th>
+
+            <td>
+                ${completedMathLessons}
+            </td>
+
+            <td>
+                ${mathematicsLessons.length}
+            </td>
+
+            <td>
+                ${mathematicsProgress}%
+            </td>
         </tr>
 
         <tr>
-            <th scope="row">Science</th>
+            <th scope="row">
+                Science
+            </th>
+
             <td>0</td>
             <td>0</td>
             <td>0%</td>
         </tr>
 
         <tr>
-            <th scope="row">English</th>
+            <th scope="row">
+                English
+            </th>
+
             <td>0</td>
             <td>0</td>
             <td>0%</td>
@@ -99,30 +192,80 @@ function updateSubjectProgress(completedLessons) {
 }
 
 function updateQuizProgress() {
-    const quizScore = getQuizScore();
+    const quizScore =
+        getQuizScore();
 
-    const scoreElement = document.querySelector(
-        "[data-quiz-score]"
-    );
+    const quizAttempts =
+        getQuizAttempts();
+
+    const scoreElement =
+        document.querySelector(
+            "[data-quiz-score]"
+        );
 
     if (scoreElement) {
         scoreElement.textContent =
             `Latest Score: ${quizScore}%`;
     }
 
-    const quizCompleted =
-        localStorage.getItem(
-            "learnovaQuizCompleted"
-        ) === "true";
-
-    const completedElement = document.querySelector(
-        "[data-quiz-completed]"
-    );
+    const completedElement =
+        document.querySelector(
+            "[data-quiz-completed]"
+        );
 
     if (completedElement) {
         completedElement.textContent =
-            `Quizzes Completed: ${
-                quizCompleted ? 1 : 0
-            }`;
+            `Quizzes Completed: ${quizAttempts}`;
+    }
+}
+
+function setupResetButton() {
+    const resetButton =
+        document.querySelector(
+            "#reset-progress"
+        );
+
+    if (!resetButton) {
+        return;
+    }
+
+    resetButton.addEventListener(
+        "click",
+        resetProgress
+    );
+}
+
+function resetProgress() {
+    const confirmed =
+        window.confirm(
+            "Are you sure you want to reset all progress?"
+        );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+        const keys = [
+            "learnovaCompletedLessons",
+            "learnovaQuizScore",
+            "learnovaQuizLastScore",
+            "learnovaQuizCompleted",
+            "learnovaQuizAttempts",
+            "learnovaQuizCorrectAnswers",
+            "learnovaQuizTotalQuestions"
+        ];
+
+        keys.forEach((key) => {
+            localStorage.removeItem(key);
+        });
+
+        window.location.reload();
+
+    } catch (error) {
+        console.error(
+            "Could not reset progress:",
+            error
+        );
     }
 }
