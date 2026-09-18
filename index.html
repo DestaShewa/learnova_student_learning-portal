@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Learnova is a student learning portal for lessons, quizzes, and learning progress."
+        content="Learnova student learning dashboard."
     >
 
     <meta
@@ -20,208 +25,354 @@
         content="#2563eb"
     >
 
-    <title>Learnova | Student Learning Portal</title>
+    <title>Dashboard | Learnova</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
 </head>
+
 
 <body>
 
-    <header>
-        <nav aria-label="Main navigation">
+<header>
 
-            <a
-                href="index.html"
-                aria-label="Learnova Home">
-                <strong>Learnova</strong>
-            </a>
+    <nav aria-label="Main navigation">
 
-            <ul>
-                <li>
-                    <a
-                        href="index.html"
-                        aria-current="page">
-                        Home
-                    </a>
-                </li>
+        <a
+            href="index.html"
+            aria-label="Learnova Home"
+        >
+            <strong>Learnova</strong>
+        </a>
 
-                <li>
-                    <a href="pages/subjects.html">
-                        Subjects
-                    </a>
-                </li>
 
-                <li>
-                    <a href="pages/lessons.html">
-                        Lessons
-                    </a>
-                </li>
+        <ul>
 
-                <li>
-                    <a href="pages/quiz.html">
-                        Quiz
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="index.html"
+                    aria-current="page"
+                >
+                    Home
+                </a>
+            </li>
 
-                <li>
-                    <a href="pages/progress.html">
-                        Progress
-                    </a>
-                </li>
-                <li>
-    <a href="pages/profile.html">
-        Profile
-    </a>
-</li>
-            </ul>
-            <button
-    type="button"
-    id="theme-toggle"
-    aria-label="Toggle dark mode"
-    aria-pressed="false">
-    🌙 Dark Mode
-</button>
+            <li>
+                <a href="pages/subjects.html">
+                    Subjects
+                </a>
+            </li>
 
-        </nav>
-    </header>
+            <li>
+                <a href="pages/lessons.html">
+                    Lessons
+                </a>
+            </li>
 
-    <main>
+            <li>
+                <a href="pages/quiz.html">
+                    Quiz
+                </a>
+            </li>
 
-        <section
-            class="hero"
-            aria-labelledby="hero-title">
+            <li>
+                <a href="pages/progress.html">
+                    Progress
+                </a>
+            </li>
 
-            <div class="hero-content">
+            <li>
+                <a href="pages/profile.html">
+                    Profile
+                </a>
+            </li>
 
-                <p>Welcome to Learnova</p>
+        </ul>
 
-                <h1 id="hero-title">
-                    Learn Better.
-                    Practice More.
-                    Grow Faster.
-                </h1>
+
+        <button
+            type="button"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+        >
+            🌙 Dark Mode
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- DASHBOARD HERO -->
+
+    <section class="dashboard-hero">
+
+        <div class="dashboard-welcome">
+
+            <p>
+                LEARNOVA DASHBOARD
+            </p>
+
+            <h1>
+                Welcome,
+                <span id="dashboard-name">
+                    Student
+                </span>
+                👋
+            </h1>
+
+            <p>
+                Continue your learning journey
+                and keep making progress.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section>
+
+        <div class="statistics-grid">
+
+            <article class="stat-card">
+
+                <span class="stat-icon">
+                    📚
+                </span>
+
+                <h2
+                    data-dashboard-lessons
+                >
+                    0
+                </h2>
 
                 <p>
-                    A simple learning platform for students
-                    to study lessons, practice quizzes,
-                    and track their learning progress.
+                    Lessons Completed
                 </p>
 
-                <a href="pages/subjects.html">
-                    Start Learning
+            </article>
+
+
+            <article class="stat-card">
+
+                <span class="stat-icon">
+                    📈
+                </span>
+
+                <h2
+                    data-dashboard-progress
+                >
+                    0%
+                </h2>
+
+                <p>
+                    Overall Progress
+                </p>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <span class="stat-icon">
+                    📝
+                </span>
+
+                <h2
+                    data-dashboard-score
+                >
+                    0%
+                </h2>
+
+                <p>
+                    Latest Quiz Score
+                </p>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <span class="stat-icon">
+                    🎯
+                </span>
+
+                <h2
+                    data-dashboard-attempts
+                >
+                    0
+                </h2>
+
+                <p>
+                    Quiz Attempts
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTINUE LEARNING -->
+
+    <section>
+
+        <div class="dashboard-section">
+
+            <div class="dashboard-section-header">
+
+                <div>
+
+                    <p class="statistics-label">
+                        Continue
+                    </p>
+
+                    <h2>
+                        Continue Learning
+                    </h2>
+
+                </div>
+
+                <a
+                    href="pages/lessons.html"
+                >
+                    View All Lessons
                 </a>
 
             </div>
 
-        </section>
 
-        <section
-            class="subjects-section"
-            aria-labelledby="subjects-title">
+            <div
+                id="continue-learning"
+                class="continue-learning"
+            >
+            </div>
 
-            <div class="section-header">
+        </div>
 
-                <p>Explore</p>
+    </section>
 
-                <h2 id="subjects-title">
-                    Subjects
-                </h2>
 
-                <p>
-                    Choose a subject and start learning.
-                </p>
+    <!-- SUBJECTS -->
+
+    <section>
+
+        <div class="dashboard-section">
+
+            <div class="dashboard-section-header">
+
+                <div>
+
+                    <p class="statistics-label">
+                        Explore
+                    </p>
+
+                    <h2>
+                        Your Subjects
+                    </h2>
+
+                </div>
+
+                <a
+                    href="pages/subjects.html"
+                >
+                    All Subjects
+                </a>
 
             </div>
 
-            <div class="subject-grid">
 
-                <article class="subject-card">
+            <div
+                id="dashboard-subjects"
+                class="dashboard-subject-grid"
+            >
+            </div>
 
-                    <h3>Mathematics</h3>
+        </div>
 
-                    <p>
-                        Learn algebra, equations,
-                        fractions, geometry and more.
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section>
+
+        <div class="dashboard-section">
+
+            <div class="dashboard-section-header">
+
+                <div>
+
+                    <p class="statistics-label">
+                        Quick Actions
                     </p>
 
-                    <a href="pages/lessons.html">
-                        View Lessons
-                    </a>
+                    <h2>
+                        Keep Learning
+                    </h2>
 
-                </article>
-
-                <article class="subject-card">
-
-                    <h3>Science</h3>
-
-                    <p>
-                        Explore important science
-                        concepts through simple lessons.
-                    </p>
-
-                    <a href="pages/lessons.html">
-                        View Lessons
-                    </a>
-
-                </article>
-
-                <article class="subject-card">
-
-                    <h3>English</h3>
-
-                    <p>
-                        Improve grammar, vocabulary,
-                        reading and communication.
-                    </p>
-
-                    <a href="pages/lessons.html">
-                        View Lessons
-                    </a>
-
-                </article>
+                </div>
 
             </div>
 
-        </section>
 
-        <section
-            class="progress-preview"
-            aria-labelledby="progress-title">
+            <div class="dashboard-actions">
 
-            <div class="section-header">
+                <a href="pages/lessons.html">
+                    📖 Browse Lessons
+                </a>
 
-                <p>Your Learning</p>
-
-                <h2 id="progress-title">
-                    Track Your Progress
-                </h2>
-
-                <p data-home-progress>
-                    0% Complete
-                </p>
+                <a href="pages/quiz.html">
+                    📝 Take Quiz
+                </a>
 
                 <a href="pages/progress.html">
-                    View Progress
+                    📊 View Progress
+                </a>
+
+                <a href="pages/profile.html">
+                    👤 Edit Profile
                 </a>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
-    <footer>
+</main>
 
-        <p>
-            &copy; 2026 Learnova.
-            All rights reserved.
-        </p>
 
-    </footer>
+<footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+    <p>
+        &copy; 2026 Learnova.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="js/data.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="js/dashboard.js"></script>
 
 </body>
 

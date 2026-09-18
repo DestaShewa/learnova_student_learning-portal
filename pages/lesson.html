@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,7 +11,7 @@
 
     <meta
         name="description"
-        content="Explore subjects and lessons on Learnova."
+        content="Study a Learnova lesson."
     >
 
     <meta
@@ -25,7 +24,7 @@
         content="#2563eb"
     >
 
-    <title>Subjects | Learnova</title>
+    <title>Lesson | Learnova</title>
 
     <link
         rel="stylesheet"
@@ -36,9 +35,7 @@
         rel="stylesheet"
         href="../css/responsive.css"
     >
-
 </head>
-
 
 <body>
 
@@ -62,10 +59,7 @@
             </li>
 
             <li>
-                <a
-                    href="subjects.html"
-                    aria-current="page"
-                >
+                <a href="subjects.html">
                     Subjects
                 </a>
             </li>
@@ -96,7 +90,6 @@
 
         </ul>
 
-
         <button
             type="button"
             id="theme-toggle"
@@ -115,28 +108,15 @@
 
     <section>
 
-        <div class="section-header">
-
-            <p>
-                Learnova
-            </p>
-
-            <h1>
-                Choose a Subject
-            </h1>
-
-            <p>
-                Select a subject and explore
-                lessons designed to help you learn.
-            </p>
-
-        </div>
-
-
         <div
-            id="subject-grid"
-            class="subject-grid"
+            id="lesson-content"
+            class="lesson-detail"
         >
+
+            <div class="error-message">
+                Loading lesson...
+            </div>
+
         </div>
 
     </section>
@@ -158,7 +138,7 @@
 
 <script src="../js/main.js"></script>
 
-<script src="../js/subjects.js"></script>
+<script src="../js/lesson.js"></script>
 
 </body>
 

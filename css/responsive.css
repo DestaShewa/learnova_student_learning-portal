@@ -151,6 +151,45 @@
     .lesson-search input {
         padding: 0.85rem;
     }
+    .statistics-grid {
+
+    grid-template-columns: 1fr;
+}
+
+
+.statistics-section {
+
+    padding: 1.5rem;
+}
+
+
+.quiz-statistics {
+
+    grid-template-columns: 1fr;
+}
+
+
+.statistics-section-header {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+}
+
+
+.progress-actions {
+
+    flex-direction: column;
+}
+
+
+.progress-actions a,
+.progress-actions button {
+
+    width: 100%;
+
+    text-align: center;
+}
 
 }
 @media (max-width: 768px) {
@@ -169,5 +208,83 @@
     #theme-toggle {
     width: auto;
 }
+@media (max-width: 900px) {
 
+    .statistics-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+@media (max-width: 768px) {
+
+    .lesson-detail-card {
+        padding: 1.5rem;
+    }
+
+    .lesson-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .lesson-actions button,
+    .lesson-actions a {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+@media (max-width: 900px) {
+
+    .dashboard-subject-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .dashboard-actions {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .dashboard-welcome {
+        padding: 1.5rem;
+    }
+
+    .dashboard-section {
+        padding: 1.5rem;
+    }
+
+    .dashboard-section-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .continue-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .continue-card > a {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .dashboard-subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
 }

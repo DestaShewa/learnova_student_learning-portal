@@ -2,28 +2,35 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Track your learning progress and quiz performance on Learnova."
-    >
+        content="Track your learning progress, lesson completion and quiz performance on Learnova.">
 
     <meta
         name="author"
-        content="Learnova"
-    >
+        content="Learnova">
 
     <meta
         name="theme-color"
-        content="#2563eb"
-    >
+        content="#2563eb">
 
     <title>Progress | Learnova</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css">
+
 </head>
 
 <body>
@@ -35,7 +42,9 @@
             <a
                 href="../index.html"
                 aria-label="Learnova Home">
+
                 <strong>Learnova</strong>
+
             </a>
 
             <ul>
@@ -71,24 +80,29 @@
                         Progress
                     </a>
                 </li>
+
                 <li>
-    <a href="profile.html">
-        Profile
-    </a>
-</li>
+                    <a href="profile.html">
+                        Profile
+                    </a>
+                </li>
 
             </ul>
+
             <button
-    type="button"
-    id="theme-toggle"
-    aria-label="Toggle dark mode"
-    aria-pressed="false">
-    🌙 Dark Mode
-</button>
+                type="button"
+                id="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+
+                🌙 Dark Mode
+
+            </button>
 
         </nav>
 
     </header>
+
 
     <main>
 
@@ -99,25 +113,120 @@
                 <p>Learnova</p>
 
                 <h1>
-                    Your Progress
+                    Progress Statistics
                 </h1>
 
                 <p>
-                    Track your lessons, subjects
+                    Understand your learning activity
                     and quiz performance.
                 </p>
 
             </div>
 
-            <section>
 
-                <h2>
-                    Overall Progress
-                </h2>
+            <!-- STATISTICS CARDS -->
 
-                <p data-overall-progress>
-                    0% Complete
-                </p>
+            <div class="statistics-grid">
+
+                <article class="stat-card">
+
+                    <span class="stat-icon">
+                        📚
+                    </span>
+
+                    <h2
+                        data-stat-lessons>
+                        0
+                    </h2>
+
+                    <p>
+                        Lessons Completed
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-icon">
+                        📊
+                    </span>
+
+                    <h2
+                        data-stat-progress>
+                        0%
+                    </h2>
+
+                    <p>
+                        Overall Progress
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-icon">
+                        🎯
+                    </span>
+
+                    <h2
+                        data-stat-score>
+                        0%
+                    </h2>
+
+                    <p>
+                        Latest Quiz Score
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-icon">
+                        🔄
+                    </span>
+
+                    <h2
+                        data-stat-attempts>
+                        0
+                    </h2>
+
+                    <p>
+                        Quiz Attempts
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <!-- OVERALL PROGRESS -->
+
+            <section class="statistics-section">
+
+                <div class="statistics-section-header">
+
+                    <div>
+
+                        <p class="statistics-label">
+                            Learning
+                        </p>
+
+                        <h2>
+                            Overall Progress
+                        </h2>
+
+                    </div>
+
+                    <strong
+                        data-overall-progress>
+                        0%
+                    </strong>
+
+                </div>
+
 
                 <progress
                     value="0"
@@ -126,13 +235,135 @@
                     0%
                 </progress>
 
+
+                <p
+                    class="progress-description"
+                    data-progress-description>
+                    Start completing lessons to increase
+                    your progress.
+                </p>
+
             </section>
 
-            <section>
 
-                <h2>
-                    Subject Progress
-                </h2>
+            <!-- SUBJECT PROGRESS -->
+
+            <section class="statistics-section">
+
+                <div class="statistics-section-header">
+
+                    <div>
+
+                        <p class="statistics-label">
+                            Subjects
+                        </p>
+
+                        <h2>
+                            Subject Progress
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="subject-statistics"
+                    class="subject-statistics">
+                </div>
+
+            </section>
+
+
+            <!-- QUIZ STATISTICS -->
+
+            <section class="statistics-section">
+
+                <div class="statistics-section-header">
+
+                    <div>
+
+                        <p class="statistics-label">
+                            Assessment
+                        </p>
+
+                        <h2>
+                            Quiz Performance
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-statistics">
+
+                    <div>
+
+                        <span>
+                            Latest Score
+                        </span>
+
+                        <strong
+                            data-quiz-score>
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Correct Answers
+                        </span>
+
+                        <strong
+                            data-quiz-correct>
+                            0 / 0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Quiz Attempts
+                        </span>
+
+                        <strong
+                            data-quiz-attempts>
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- OLD SUBJECT TABLE -->
+
+            <section class="statistics-section">
+
+                <div class="statistics-section-header">
+
+                    <div>
+
+                        <p class="statistics-label">
+                            Details
+                        </p>
+
+                        <h2>
+                            Progress Details
+                        </h2>
+
+                    </div>
+
+                </div>
+
 
                 <table>
 
@@ -143,6 +374,7 @@
                     <thead>
 
                         <tr>
+
                             <th scope="col">
                                 Subject
                             </th>
@@ -158,6 +390,7 @@
                             <th scope="col">
                                 Progress
                             </th>
+
                         </tr>
 
                     </thead>
@@ -168,54 +401,25 @@
 
             </section>
 
-            <section>
 
-                <h2>
-                    Quiz Performance
-                </h2>
+            <!-- ACTIONS -->
 
-                <p data-quiz-score>
-                    Latest Score: 0%
-                </p>
-
-                <p data-quiz-completed>
-                    Quizzes Completed: 0
-                </p>
-
-            </section>
-
-            <section>
-
-                <h2>
-                    Continue Learning
-                </h2>
-
-                <p>
-                    Continue your Mathematics lessons
-                    and improve your progress.
-                </p>
+            <section class="progress-actions">
 
                 <a href="lessons.html">
-                    Continue Lessons
+                    Continue Learning
                 </a>
 
-            </section>
-
-            <section>
-
-                <h2>
-                    Reset Progress
-                </h2>
-
-                <p>
-                    Clear your saved lessons
-                    and quiz results.
-                </p>
+                <a href="quiz.html">
+                    Take Quiz
+                </a>
 
                 <button
                     type="button"
                     id="reset-progress">
+
                     Reset Progress
+
                 </button>
 
             </section>
@@ -223,6 +427,7 @@
         </section>
 
     </main>
+
 
     <footer>
 
@@ -233,8 +438,11 @@
 
     </footer>
 
+
     <script src="../js/data.js"></script>
+
     <script src="../js/main.js"></script>
+
     <script src="../js/progress.js"></script>
 
 </body>

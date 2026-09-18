@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Explore Mathematics lessons on Learnova."
+        content="Explore and study lessons on Learnova."
     >
 
     <meta
@@ -22,180 +27,280 @@
 
     <title>Lessons | Learnova</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
 </head>
+
 
 <body>
 
-    <header>
 
-        <nav aria-label="Main navigation">
+<!-- =========================
+     HEADER
+========================= -->
 
-            <a
-                href="../index.html"
-                aria-label="Learnova Home">
-                <strong>Learnova</strong>
-            </a>
+<header>
 
-            <ul>
+    <nav aria-label="Main navigation">
 
-                <li>
-                    <a href="../index.html">
-                        Home
-                    </a>
-                </li>
 
-                <li>
-                    <a href="subjects.html">
-                        Subjects
-                    </a>
-                </li>
+        <!-- LOGO -->
 
-                <li>
-                    <a
-                        href="lessons.html"
-                        aria-current="page">
-                        Lessons
-                    </a>
-                </li>
+        <a
+            href="../index.html"
+            aria-label="Learnova Home"
+        >
+            <strong>
+                Learnova
+            </strong>
+        </a>
 
-                <li>
-                    <a href="quiz.html">
-                        Quiz
-                    </a>
-                </li>
 
-                <li>
-                    <a href="progress.html">
-                        Progress
-                    </a>
-                </li>
-                <li>
-    <a href="profile.html">
-        Profile
-    </a>
-</li>
+        <!-- NAVIGATION -->
 
-            </ul>
-            <button
-    type="button"
-    id="theme-toggle"
-    aria-label="Toggle dark mode"
-    aria-pressed="false">
-    🌙 Dark Mode
-</button>
+        <ul>
 
-        </nav>
+            <li>
+                <a href="../index.html">
+                    Home
+                </a>
+            </li>
 
-    </header>
 
-    <main>
+            <li>
+                <a href="subjects.html">
+                    Subjects
+                </a>
+            </li>
 
-     <section>
 
-    <div class="section-header">
+            <li>
+                <a
+                    href="lessons.html"
+                    aria-current="page"
+                >
+                    Lessons
+                </a>
+            </li>
 
-        <p>Learnova</p>
 
-        <h1>
-            Lessons
-        </h1>
+            <li>
+                <a href="quiz.html">
+                    Quiz
+                </a>
+            </li>
 
-        <p>
-            Search, filter and complete your lessons.
-        </p>
 
-    </div>
+            <li>
+                <a href="progress.html">
+                    Progress
+                </a>
+            </li>
 
-    <!-- LESSON FILTERS -->
 
-    <div class="lesson-filters">
+            <li>
+                <a href="profile.html">
+                    Profile
+                </a>
+            </li>
 
-        <div class="filter-group">
+        </ul>
 
-            <label for="lesson-search-input">
-                Search lessons
-            </label>
 
-            <input
-                type="search"
-                id="lesson-search-input"
-                placeholder="Search by lesson title..."
-                autocomplete="off"
+        <!-- DARK MODE -->
+
+        <button
+            type="button"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+        >
+            🌙 Dark Mode
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+    <section>
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="section-header">
+
+            <p>
+                Learnova
+            </p>
+
+
+            <h1>
+                Explore Lessons
+            </h1>
+
+
+            <p>
+                Search, filter and study lessons
+                at your own pace.
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             SEARCH + FILTER
+        ========================= -->
+
+        <div class="lesson-filters">
+
+
+            <!-- SEARCH -->
+
+            <div class="filter-group">
+
+                <label
+                    for="lesson-search-input"
+                >
+                    Search Lessons
+                </label>
+
+
+                <input
+                    type="search"
+                    id="lesson-search-input"
+                    placeholder="Search by lesson, subject or topic..."
+                    autocomplete="off"
+                    aria-describedby="lesson-search-result"
+                >
+
+            </div>
+
+
+
+            <!-- SUBJECT FILTER -->
+
+            <div class="filter-group">
+
+                <label
+                    for="subject-filter"
+                >
+                    Filter by Subject
+                </label>
+
+
+                <select
+                    id="subject-filter"
+                >
+
+                    <option value="all">
+                        All Subjects
+                    </option>
+
+
+                    <option value="mathematics">
+                        Mathematics
+                    </option>
+
+
+                    <option value="science">
+                        Science
+                    </option>
+
+
+                    <option value="english">
+                        English
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- SEARCH RESULT -->
+
+            <p
+                id="lesson-search-result"
+                aria-live="polite"
             >
+                10 lessons available.
+            </p>
 
         </div>
 
-        <div class="filter-group">
 
-            <label for="subject-filter">
-                Filter by subject
-            </label>
 
-            <select id="subject-filter">
+        <!-- =========================
+             LESSON LIST
+        ========================= -->
 
-                <option value="all">
-                    All Subjects
-                </option>
+        <div
+            class="lesson-list"
+            aria-live="polite"
+        >
 
-                <option value="Mathematics">
-                    Mathematics
-                </option>
+            <!-- JavaScript renders lessons here -->
 
-                <option value="Science">
-                    Science
-                </option>
-
-                <option value="English">
-                    English
-                </option>
-
-            </select>
+            <div class="error-message">
+                Loading lessons...
+            </div>
 
         </div>
 
-        <p
-            id="lesson-search-result"
-            aria-live="polite">
-        </p>
 
-    </div>
+    </section>
 
-    <!-- LESSON LIST -->
 
-    <div
-        class="lesson-list"
-        aria-live="polite">
-    </div>
+</main>
 
-    <div>
 
-        <a href="quiz.html">
-            Take Quiz
-        </a>
 
-        <a href="progress.html">
-            View Progress
-        </a>
+<!-- =========================
+     FOOTER
+========================= -->
 
-    </div>
+<footer>
 
-</section>
-    </main>
+    <p>
+        &copy; 2026 Learnova.
+        All rights reserved.
+    </p>
 
-    <footer>
+</footer>
 
-        <p>
-            &copy; 2026 Learnova.
-            All rights reserved.
-        </p>
 
-    </footer>
 
-    <script src="../js/data.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/lessons.js"></script>
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="../js/data.js"></script>
+
+<script src="../js/main.js"></script>
+
+<script src="../js/lessons.js"></script>
+
 
 </body>
 

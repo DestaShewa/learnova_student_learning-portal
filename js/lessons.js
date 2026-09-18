@@ -5,33 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================
-   LOCAL STORAGE
+   PROGRESS
 ========================= */
 
 function getCompletedLessons() {
-
     try {
+        const data = localStorage.getItem(
+            "learnovaCompletedLessons"
+        );
 
-        const data =
-            localStorage.getItem(
-                "learnovaCompletedLessons"
-            );
+        const completedLessons = data
+            ? JSON.parse(data)
+            : [];
 
-        const completedLessons =
-            data
-                ? JSON.parse(data)
-                : [];
-
-        return Array.isArray(
-            completedLessons
-        )
+        return Array.isArray(completedLessons)
             ? completedLessons
             : [];
 
     } catch (error) {
-
         console.error(
-            "Could not load progress:",
+            "Could not load completed lessons:",
             error
         );
 
@@ -40,12 +33,8 @@ function getCompletedLessons() {
 }
 
 
-function saveCompletedLessons(
-    completedLessons
-) {
-
+function saveCompletedLessons(completedLessons) {
     try {
-
         localStorage.setItem(
             "learnovaCompletedLessons",
             JSON.stringify(completedLessons)
@@ -54,9 +43,8 @@ function saveCompletedLessons(
         return true;
 
     } catch (error) {
-
         console.error(
-            "Could not save progress:",
+            "Could not save completed lessons:",
             error
         );
 
@@ -69,33 +57,24 @@ function saveCompletedLessons(
    RENDER LESSONS
 ========================= */
 
-function renderLessons(
-    filteredLessons = lessons
-) {
-
+function renderLessons(filteredLessons = lessons) {
     const lessonList =
-        document.querySelector(
-            ".lesson-list"
-        );
+        document.querySelector(".lesson-list");
 
     if (!lessonList) {
         return;
     }
 
     try {
-
         const completedLessons =
             getCompletedLessons();
 
         lessonList.innerHTML = "";
 
         if (
-            !Array.isArray(
-                filteredLessons
-            ) ||
+            !Array.isArray(filteredLessons) ||
             filteredLessons.length === 0
         ) {
-
             lessonList.innerHTML = `
                 <div class="error-message">
                     No lessons found.
@@ -105,80 +84,72 @@ function renderLessons(
             return;
         }
 
-        filteredLessons.forEach(
-            (lesson) => {
 
-                const isCompleted =
-                    completedLessons.includes(
-                        lesson.id
-                    );
+        filteredLessons.forEach((lesson) => {
 
-                const article =
-                    document.createElement(
-                        "article"
-                    );
-
-                article.className =
-                    "lesson-card";
-
-                article.innerHTML = `
-                    <div>
-
-                        <p>
-                            Lesson ${lesson.id}
-                        </p>
-
-                        <h2>
-                            ${lesson.title}
-                        </h2>
-
-                        <p>
-                            ${lesson.description}
-                        </p>
-
-                        <p>
-                            Duration:
-                            ${lesson.duration}
-                        </p>
-
-                        ${
-                            isCompleted
-                                ? `
-                                    <p>
-                                        <strong>
-                                            Completed ✓
-                                        </strong>
-                                    </p>
-                                `
-                                : ""
-                        }
-
-                    </div>
-
-                    <button
-                        type="button"
-                        data-lesson-id="${lesson.id}"
-                        ${
-                            isCompleted
-                                ? "disabled"
-                                : ""
-                        }
-                    >
-                        ${
-                            isCompleted
-                                ? "Completed"
-                                : "Mark Complete"
-                        }
-                    </button>
-                `;
-
-                lessonList.appendChild(
-                    article
+            const isCompleted =
+                completedLessons.includes(
+                    lesson.id
                 );
-            }
-        );
 
-        setupLessonButtons();
+
+            const article =
+                document.createElement("article");
+
+            article.className =
+                "lesson-card";
+
+
+            article.innerHTML = `
+                <div>
+
+                    <p>
+                        ${lesson.subject}
+                    </p>
+
+                    <h2>
+                        ${lesson.title}
+                    </h2>
+
+                    <p>
+                        ${lesson.description}
+                    </p>
+
+                    <p>
+                        Duration:
+                        ${lesson.duration}
+                    </p>
+
+                    ${
+                        isCompleted
+                            ? `
+                                <p>
+                                    <strong>
+                                        Completed ✓
+                                    </strong>
+                                </p>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+
+                <a
+                    href="lesson.html?id=${lesson.id}"
+                    class="lesson-open-button"
+                >
+                    ${
+                        isCompleted
+                            ? "Review Lesson"
+                            : "Open Lesson"
+                    }
+                </a>
+            `;
+
+
+            lessonList.appendChild(article);
+        });
 
     } catch (error) {
 
@@ -198,83 +169,6 @@ function renderLessons(
 
 
 /* =========================
-   LESSON BUTTONS
-========================= */
-
-function setupLessonButtons() {
-
-    const buttons =
-        document.querySelectorAll(
-            "[data-lesson-id]"
-        );
-
-    buttons.forEach(
-        (button) => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    const lessonId =
-                        Number(
-                            button.dataset
-                                .lessonId
-                        );
-
-                    completeLesson(
-                        lessonId
-                    );
-                }
-            );
-        }
-    );
-}
-
-
-function completeLesson(
-    lessonId
-) {
-
-    const completedLessons =
-        getCompletedLessons();
-
-    if (
-        !completedLessons.includes(
-            lessonId
-        )
-    ) {
-
-        completedLessons.push(
-            lessonId
-        );
-    }
-
-    const saved =
-        saveCompletedLessons(
-            completedLessons
-        );
-
-    if (saved) {
-
-        const searchInput =
-            document.querySelector(
-                "#lesson-search-input"
-            );
-
-        if (searchInput) {
-
-            filterLessons(
-                searchInput.value
-            );
-
-        } else {
-
-            renderLessons();
-        }
-    }
-}
-
-/* =========================
    SEARCH + FILTER
 ========================= */
 
@@ -285,31 +179,74 @@ function setupLessonSearch() {
             "#lesson-search-input"
         );
 
+
     const subjectFilter =
         document.querySelector(
             "#subject-filter"
         );
 
-    if (!searchInput) {
-        return;
+
+    /*
+     * Search input
+     */
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            applyLessonFilters
+        );
     }
 
-    searchInput.addEventListener(
-        "input",
-        applyLessonFilters
-    );
 
+    /*
+     * Subject filter
+     */
     if (subjectFilter) {
 
         subjectFilter.addEventListener(
             "change",
             applyLessonFilters
         );
+
+
+        /*
+         * Check URL:
+         *
+         * lessons.html?subject=science
+         */
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const subject =
+            params.get("subject");
+
+
+        if (
+            subject &&
+            subjects.some(
+                (item) =>
+                    item.id === subject
+            )
+        ) {
+            subjectFilter.value =
+                subject;
+        }
     }
 
+
+    /*
+     * Initial render
+     */
     applyLessonFilters();
 }
 
+
+/* =========================
+   APPLY FILTERS
+========================= */
 
 function applyLessonFilters() {
 
@@ -318,10 +255,12 @@ function applyLessonFilters() {
             "#lesson-search-input"
         );
 
+
     const subjectFilter =
         document.querySelector(
             "#subject-filter"
         );
+
 
     const searchTerm =
         searchInput
@@ -330,41 +269,56 @@ function applyLessonFilters() {
                 .toLowerCase()
             : "";
 
+
     const selectedSubject =
         subjectFilter
             ? subjectFilter.value
             : "all";
 
+
     const filteredLessons =
-        lessons.filter(
-            (lesson) => {
+        lessons.filter((lesson) => {
 
-                const matchesSearch =
-                    lesson.title
-                        .toLowerCase()
-                        .includes(searchTerm) ||
-                    lesson.description
-                        .toLowerCase()
-                        .includes(searchTerm) ||
-                    lesson.subject
-                        .toLowerCase()
-                        .includes(searchTerm);
+            /*
+             * Search by:
+             * - title
+             * - description
+             * - subject
+             */
+            const matchesSearch =
+                lesson.title
+                    .toLowerCase()
+                    .includes(searchTerm) ||
 
-                const matchesSubject =
-                    selectedSubject === "all" ||
-                    lesson.subject ===
-                        selectedSubject;
+                lesson.description
+                    .toLowerCase()
+                    .includes(searchTerm) ||
 
-                return (
-                    matchesSearch &&
-                    matchesSubject
-                );
-            }
-        );
+                lesson.subject
+                    .toLowerCase()
+                    .includes(searchTerm);
+
+
+            /*
+             * Filter by subject ID
+             */
+            const matchesSubject =
+                selectedSubject === "all" ||
+                lesson.subjectId ===
+                    selectedSubject;
+
+
+            return (
+                matchesSearch &&
+                matchesSubject
+            );
+        });
+
 
     renderLessons(
         filteredLessons
     );
+
 
     updateSearchResult(
         filteredLessons.length,
@@ -375,7 +329,7 @@ function applyLessonFilters() {
 
 
 /* =========================
-   RESULT MESSAGE
+   SEARCH RESULT MESSAGE
 ========================= */
 
 function updateSearchResult(
@@ -389,14 +343,23 @@ function updateSearchResult(
             "#lesson-search-result"
         );
 
+
     if (!resultElement) {
         return;
     }
 
-    const hasFilter =
+
+    const hasSubjectFilter =
         selectedSubject !== "all";
 
-    if (!searchTerm && !hasFilter) {
+
+    /*
+     * No search/filter
+     */
+    if (
+        !searchTerm &&
+        !hasSubjectFilter
+    ) {
 
         resultElement.textContent =
             `${lessons.length} lessons available.`;
@@ -404,10 +367,58 @@ function updateSearchResult(
         return;
     }
 
+
+    /*
+     * Search/filter active
+     */
     resultElement.textContent =
         `${resultCount} lesson${
             resultCount === 1
                 ? ""
                 : "s"
         } found.`;
+}
+
+
+/* =========================
+   COMPLETE LESSON
+========================= */
+
+function completeLesson(lessonId) {
+
+    const completedLessons =
+        getCompletedLessons();
+
+
+    /*
+     * Don't add duplicate lesson IDs
+     */
+    if (
+        completedLessons.includes(
+            lessonId
+        )
+    ) {
+        return;
+    }
+
+
+    completedLessons.push(
+        lessonId
+    );
+
+
+    const saved =
+        saveCompletedLessons(
+            completedLessons
+        );
+
+
+    if (saved) {
+
+        /*
+         * Re-render current list
+         * so completion state updates.
+         */
+        applyLessonFilters();
+    }
 }
