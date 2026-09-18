@@ -18,67 +18,27 @@
 
 <body>
 
-    <!-- ================================
-         HEADER
-         ================================ -->
-
     <header>
-
         <nav>
-
             <a href="../index.html" aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-
-                <li>
-                    <a href="../index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="subjects.html">
-                        Subjects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="lessons.html">
-                        Lessons
-                    </a>
-                </li>
-
-                <li>
-                    <a href="quiz.html" aria-current="page">
-                        Quiz
-                    </a>
-                </li>
-
-                <li>
-                    <a href="progress.html">
-                        Progress
-                    </a>
-                </li>
-
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+                <li><a href="progress.html">Progress</a></li>
             </ul>
-
         </nav>
-
     </header>
-
-
-    <!-- ================================
-         MAIN
-         ================================ -->
 
     <main>
 
         <section>
 
             <div class="section-header">
-
                 <p>Mathematics</p>
 
                 <h1>Quiz</h1>
@@ -87,136 +47,33 @@
                     Test your understanding
                     and see how much you have learned.
                 </p>
-
             </div>
 
-
-            <!-- Quiz Form -->
-
-            <form id="quiz-form">
-
-                <!-- Question 1 -->
-
-                <fieldset>
-
-                    <legend>
-                        Question 1
-                    </legend>
-
-                    <p>
-                        What is 2 + 3?
-                    </p>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question1"
-                            value="4"
-                        >
-                        4
-                    </label>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question1"
-                            value="5"
-                        >
-                        5
-                    </label>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question1"
-                            value="6"
-                        >
-                        6
-                    </label>
-
-                </fieldset>
-
-
-                <!-- Question 2 -->
-
-                <fieldset>
-
-                    <legend>
-                        Question 2
-                    </legend>
-
-                    <p>
-                        What is 10 × 2?
-                    </p>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question2"
-                            value="10"
-                        >
-                        10
-                    </label>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question2"
-                            value="20"
-                        >
-                        20
-                    </label>
-
-                    <label>
-                        <input
-                            type="radio"
-                            name="question2"
-                            value="30"
-                        >
-                        30
-                    </label>
-
-                </fieldset>
-
-
-                <button type="submit">
-                    Submit Quiz
-                </button>
-
-            </form>
-
-
-            <!-- Quiz Result -->
+            <form id="quiz-form"></form>
 
             <div id="quiz-result">
-
                 <h2>Result</h2>
 
                 <p>
-                    Your score will appear here
-                    after you submit the quiz.
+                    Answer all questions and submit
+                    the quiz to see your score.
                 </p>
-
             </div>
 
         </section>
 
     </main>
 
-
-    <!-- ================================
-         FOOTER
-         ================================ -->
-
     <footer>
-
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
-
     </footer>
 
-</body>
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
 
+</body>
 </html>

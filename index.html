@@ -18,69 +18,25 @@
 
 <body>
 
-    <!-- ================================
-         HEADER
-         ================================ -->
-
     <header>
-
         <nav>
-
             <a href="index.html" aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-
-                <li>
-                    <a href="index.html" aria-current="page">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="pages/subjects.html">
-                        Subjects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="pages/lessons.html">
-                        Lessons
-                    </a>
-                </li>
-
-                <li>
-                    <a href="pages/quiz.html">
-                        Quiz
-                    </a>
-                </li>
-
-                <li>
-                    <a href="pages/progress.html">
-                        Progress
-                    </a>
-                </li>
-
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="pages/subjects.html">Subjects</a></li>
+                <li><a href="pages/lessons.html">Lessons</a></li>
+                <li><a href="pages/quiz.html">Quiz</a></li>
+                <li><a href="pages/progress.html">Progress</a></li>
             </ul>
-
         </nav>
-
     </header>
-
-
-    <!-- ================================
-         MAIN CONTENT
-         ================================ -->
 
     <main>
 
-        <!-- ============================
-             HERO SECTION
-             ============================ -->
-
         <section class="hero">
-
             <div class="hero-content">
 
                 <p>Welcome to Learnova</p>
@@ -102,13 +58,7 @@
                 </a>
 
             </div>
-
         </section>
-
-
-        <!-- ============================
-             SUBJECTS SECTION
-             ============================ -->
 
         <section class="subjects-section">
 
@@ -124,10 +74,7 @@
 
             </div>
 
-
             <div class="subject-grid">
-
-                <!-- Mathematics -->
 
                 <article class="subject-card">
 
@@ -144,9 +91,6 @@
 
                 </article>
 
-
-                <!-- Science -->
-
                 <article class="subject-card">
 
                     <h3>Science</h3>
@@ -161,9 +105,6 @@
                     </a>
 
                 </article>
-
-
-                <!-- English -->
 
                 <article class="subject-card">
 
@@ -184,11 +125,6 @@
 
         </section>
 
-
-        <!-- ============================
-             PROGRESS PREVIEW
-             ============================ -->
-
         <section class="progress-preview">
 
             <div class="section-header">
@@ -197,9 +133,8 @@
 
                 <h2>Track Your Progress</h2>
 
-                <p>
-                    See your completed lessons
-                    and quiz performance in one place.
+                <p data-home-progress>
+                    0% Complete
                 </p>
 
                 <a href="pages/progress.html">
@@ -212,20 +147,15 @@
 
     </main>
 
-
-    <!-- ================================
-         FOOTER
-         ================================ -->
-
     <footer>
-
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
-
     </footer>
 
-</body>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
 
+</body>
 </html>

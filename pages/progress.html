@@ -18,67 +18,27 @@
 
 <body>
 
-    <!-- ================================
-         HEADER
-         ================================ -->
-
     <header>
-
         <nav>
-
             <a href="../index.html" aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-
-                <li>
-                    <a href="../index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="subjects.html">
-                        Subjects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="lessons.html">
-                        Lessons
-                    </a>
-                </li>
-
-                <li>
-                    <a href="quiz.html">
-                        Quiz
-                    </a>
-                </li>
-
-                <li>
-                    <a href="progress.html" aria-current="page">
-                        Progress
-                    </a>
-                </li>
-
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="progress.html" aria-current="page">Progress</a></li>
             </ul>
-
         </nav>
-
     </header>
-
-
-    <!-- ================================
-         MAIN
-         ================================ -->
 
     <main>
 
         <section>
 
             <div class="section-header">
-
                 <p>Learnova</p>
 
                 <h1>Your Progress</h1>
@@ -87,35 +47,24 @@
                     Track your lessons, subjects
                     and quiz performance.
                 </p>
-
             </div>
-
-
-            <!-- ============================
-                 OVERALL PROGRESS
-                 ============================ -->
 
             <section>
 
                 <h2>Overall Progress</h2>
 
-                <p>
-                    40% Complete
+                <p data-overall-progress>
+                    0% Complete
                 </p>
 
                 <progress
-                    value="40"
+                    value="0"
                     max="100"
                     aria-label="Overall learning progress">
-                    40%
+                    0%
                 </progress>
 
             </section>
-
-
-            <!-- ============================
-                 SUBJECT PROGRESS
-                 ============================ -->
 
             <section>
 
@@ -128,122 +77,33 @@
                     </caption>
 
                     <thead>
-
                         <tr>
-
-                            <th scope="col">
-                                Subject
-                            </th>
-
-                            <th scope="col">
-                                Completed
-                            </th>
-
-                            <th scope="col">
-                                Total
-                            </th>
-
-                            <th scope="col">
-                                Progress
-                            </th>
-
+                            <th scope="col">Subject</th>
+                            <th scope="col">Completed</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Progress</th>
                         </tr>
-
                     </thead>
 
-                    <tbody>
-
-                        <tr>
-
-                            <th scope="row">
-                                Mathematics
-                            </th>
-
-                            <td>
-                                2
-                            </td>
-
-                            <td>
-                                4
-                            </td>
-
-                            <td>
-                                50%
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <th scope="row">
-                                Science
-                            </th>
-
-                            <td>
-                                1
-                            </td>
-
-                            <td>
-                                4
-                            </td>
-
-                            <td>
-                                25%
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <th scope="row">
-                                English
-                            </th>
-
-                            <td>
-                                2
-                            </td>
-
-                            <td>
-                                4
-                            </td>
-
-                            <td>
-                                50%
-                            </td>
-
-                        </tr>
-
-                    </tbody>
+                    <tbody></tbody>
 
                 </table>
 
             </section>
 
-
-            <!-- ============================
-                 QUIZ PERFORMANCE
-                 ============================ -->
-
             <section>
 
                 <h2>Quiz Performance</h2>
 
-                <p>
-                    Latest Score: 80%
+                <p data-quiz-score>
+                    Latest Score: 0%
                 </p>
 
-                <p>
-                    Quizzes Completed: 3
+                <p data-quiz-completed>
+                    Quizzes Completed: 0
                 </p>
 
             </section>
-
-
-            <!-- ============================
-                 CONTINUE LEARNING
-                 ============================ -->
 
             <section>
 
@@ -264,20 +124,16 @@
 
     </main>
 
-
-    <!-- ================================
-         FOOTER
-         ================================ -->
-
     <footer>
-
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
-
     </footer>
 
-</body>
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/progress.js"></script>
 
+</body>
 </html>
