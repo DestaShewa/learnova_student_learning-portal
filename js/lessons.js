@@ -274,9 +274,8 @@ function completeLesson(
     }
 }
 
-
 /* =========================
-   SEARCH
+   SEARCH + FILTER
 ========================= */
 
 function setupLessonSearch() {
@@ -286,57 +285,79 @@ function setupLessonSearch() {
             "#lesson-search-input"
         );
 
+    const subjectFilter =
+        document.querySelector(
+            "#subject-filter"
+        );
+
     if (!searchInput) {
         return;
     }
 
     searchInput.addEventListener(
         "input",
-        () => {
-
-            filterLessons(
-                searchInput.value
-            );
-        }
+        applyLessonFilters
     );
+
+    if (subjectFilter) {
+
+        subjectFilter.addEventListener(
+            "change",
+            applyLessonFilters
+        );
+    }
+
+    applyLessonFilters();
 }
 
 
-function filterLessons(
-    searchTerm
-) {
+function applyLessonFilters() {
 
-    const normalizedSearch =
-        searchTerm
-            .trim()
-            .toLowerCase();
+    const searchInput =
+        document.querySelector(
+            "#lesson-search-input"
+        );
+
+    const subjectFilter =
+        document.querySelector(
+            "#subject-filter"
+        );
+
+    const searchTerm =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : "";
+
+    const selectedSubject =
+        subjectFilter
+            ? subjectFilter.value
+            : "all";
 
     const filteredLessons =
         lessons.filter(
             (lesson) => {
 
-                const title =
+                const matchesSearch =
                     lesson.title
-                        .toLowerCase();
-
-                const description =
+                        .toLowerCase()
+                        .includes(searchTerm) ||
                     lesson.description
-                        .toLowerCase();
-
-                const subject =
+                        .toLowerCase()
+                        .includes(searchTerm) ||
                     lesson.subject
-                        .toLowerCase();
+                        .toLowerCase()
+                        .includes(searchTerm);
+
+                const matchesSubject =
+                    selectedSubject === "all" ||
+                    lesson.subject ===
+                        selectedSubject;
 
                 return (
-                    title.includes(
-                        normalizedSearch
-                    ) ||
-                    description.includes(
-                        normalizedSearch
-                    ) ||
-                    subject.includes(
-                        normalizedSearch
-                    )
+                    matchesSearch &&
+                    matchesSubject
                 );
             }
         );
@@ -347,18 +368,20 @@ function filterLessons(
 
     updateSearchResult(
         filteredLessons.length,
-        normalizedSearch
+        searchTerm,
+        selectedSubject
     );
 }
 
 
 /* =========================
-   SEARCH RESULT MESSAGE
+   RESULT MESSAGE
 ========================= */
 
 function updateSearchResult(
     resultCount,
-    searchTerm
+    searchTerm,
+    selectedSubject
 ) {
 
     const resultElement =
@@ -370,7 +393,10 @@ function updateSearchResult(
         return;
     }
 
-    if (!searchTerm) {
+    const hasFilter =
+        selectedSubject !== "all";
+
+    if (!searchTerm && !hasFilter) {
 
         resultElement.textContent =
             `${lessons.length} lessons available.`;

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage your Learnova student profile.">
+
+    <meta
+        name="author"
+        content="Learnova">
+
+    <meta
+        name="theme-color"
+        content="#2563eb">
+
+    <title>Profile | Learnova</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav aria-label="Main navigation">
+
+            <a
+                href="../index.html"
+                aria-label="Learnova Home">
+
+                <strong>Learnova</strong>
+
+            </a>
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subjects.html">
+                        Subjects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lessons.html">
+                        Lessons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="progress.html">
+                        Progress
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="profile.html"
+                        aria-current="page">
+                        Profile
+                    </a>
+                </li>
+                <li>
+    <a href="profile.html">
+        Profile
+    </a>
+</li>
+
+            </ul>
+
+            <button
+                type="button"
+                id="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+
+                🌙 Dark Mode
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section>
+
+            <div class="section-header">
+
+                <p>Learnova</p>
+
+                <h1>
+                    Student Profile
+                </h1>
+
+                <p>
+                    Manage your learning information.
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-container">
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <h2
+                        id="profile-name">
+                        Student
+                    </h2>
+
+                    <p
+                        id="profile-grade">
+                        Grade not set
+                    </p>
+
+                    <p
+                        id="profile-email">
+                        Email not set
+                    </p>
+
+                    <p
+                        id="profile-goal">
+                        Learning goal not set
+                    </p>
+
+                </div>
+
+
+                <!-- EDIT PROFILE -->
+
+                <form
+                    id="profile-form"
+                    class="profile-form">
+
+                    <h2>
+                        Edit Profile
+                    </h2>
+
+                    <div class="form-group">
+
+                        <label for="student-name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student-name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student-grade">
+                            Grade
+                        </label>
+
+                        <select
+                            id="student-grade"
+                            required>
+
+                            <option value="">
+                                Select grade
+                            </option>
+
+                            <option value="Grade 5">
+                                Grade 5
+                            </option>
+
+                            <option value="Grade 6">
+                                Grade 6
+                            </option>
+
+                            <option value="Grade 7">
+                                Grade 7
+                            </option>
+
+                            <option value="Grade 8">
+                                Grade 8
+                            </option>
+
+                            <option value="Grade 9">
+                                Grade 9
+                            </option>
+
+                            <option value="Grade 10">
+                                Grade 10
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student-email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="student-email"
+                            placeholder="student@example.com">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student-goal">
+                            Learning Goal
+                        </label>
+
+                        <textarea
+                            id="student-goal"
+                            rows="4"
+                            placeholder="What do you want to achieve?">
+                        </textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit">
+
+                        Save Profile
+
+                    </button>
+
+                    <p
+                        id="profile-message"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy; 2026 Learnova.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../js/data.js"></script>
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>

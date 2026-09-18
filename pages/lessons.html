@@ -71,8 +71,20 @@
                         Progress
                     </a>
                 </li>
+                <li>
+    <a href="profile.html">
+        Profile
+    </a>
+</li>
 
             </ul>
+            <button
+    type="button"
+    id="theme-toggle"
+    aria-label="Toggle dark mode"
+    aria-pressed="false">
+    🌙 Dark Mode
+</button>
 
         </nav>
 
@@ -80,36 +92,68 @@
 
     <main>
 
-       <section>
+     <section>
 
     <div class="section-header">
 
-        <p>Mathematics</p>
+        <p>Learnova</p>
 
         <h1>
             Lessons
         </h1>
 
         <p>
-            Search, explore and complete your lessons.
+            Search, filter and complete your lessons.
         </p>
 
     </div>
 
-    <!-- SEARCH -->
+    <!-- LESSON FILTERS -->
 
-    <div class="lesson-search">
+    <div class="lesson-filters">
 
-        <label for="lesson-search-input">
-            Search lessons
-        </label>
+        <div class="filter-group">
 
-        <input
-            type="search"
-            id="lesson-search-input"
-            placeholder="Search by lesson title..."
-            autocomplete="off"
-        >
+            <label for="lesson-search-input">
+                Search lessons
+            </label>
+
+            <input
+                type="search"
+                id="lesson-search-input"
+                placeholder="Search by lesson title..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div class="filter-group">
+
+            <label for="subject-filter">
+                Filter by subject
+            </label>
+
+            <select id="subject-filter">
+
+                <option value="all">
+                    All Subjects
+                </option>
+
+                <option value="Mathematics">
+                    Mathematics
+                </option>
+
+                <option value="Science">
+                    Science
+                </option>
+
+                <option value="English">
+                    English
+                </option>
+
+            </select>
+
+        </div>
 
         <p
             id="lesson-search-result"

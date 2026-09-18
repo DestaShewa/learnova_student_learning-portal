@@ -11,6 +11,19 @@
     .hero h1 {
         font-size: clamp(2.5rem, 8vw, 4rem);
     }
+    .profile-container {
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+}
+
+
+.profile-card,
+.profile-form {
+
+    padding: 1.5rem;
+}
 }
 
 @media (max-width: 768px) {
@@ -138,5 +151,23 @@
     .lesson-search input {
         padding: 0.85rem;
     }
+
+}
+@media (max-width: 768px) {
+
+    .lesson-filters {
+
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+    }
+
+    #lesson-search-result {
+
+        grid-column: auto;
+    }
+    #theme-toggle {
+    width: auto;
+}
 
 }
