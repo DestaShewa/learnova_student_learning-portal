@@ -1,0 +1,187 @@
+/* =========================================
+   LEARNOVA — RESPONSIVE DESIGN
+   ========================================= */
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Navigation */
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.75rem;
+
+        padding: 1rem 0;
+    }
+
+
+    nav ul {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    nav ul a {
+        font-size: 0.9rem;
+    }
+
+
+    /* Layout */
+
+    section {
+        padding: 3rem 0;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 480px;
+        text-align: center;
+    }
+
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+
+    .hero-content > p:nth-of-type(2) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* Subjects */
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .subject-card {
+        padding: 1.5rem;
+    }
+
+
+    /* Lessons */
+
+    .lesson-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .lesson-card a {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Quiz */
+
+    fieldset {
+        padding: 1.2rem;
+    }
+
+
+    #quiz-form button {
+        width: 100%;
+    }
+
+
+    /* Progress */
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+
+    /* Footer */
+
+    footer {
+        margin-top: 2rem;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    main {
+        width: 90%;
+    }
+
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+
+    nav ul a {
+        font-size: 0.82rem;
+    }
+
+
+    .hero {
+        min-height: 430px;
+    }
+
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+
+    .hero-content > p:nth-of-type(2) {
+        font-size: 1rem;
+    }
+
+
+    .section-header h1 {
+        font-size: 2rem;
+    }
+
+
+    .section-header h2 {
+        font-size: 1.7rem;
+    }
+
+
+    .subject-card,
+    .lesson-card,
+    fieldset {
+        padding: 1.2rem;
+    }
+}

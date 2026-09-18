@@ -5,125 +5,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Learnova - Student Learning Portal</title>
+    <meta
+        name="description"
+        content="Learnova is a simple student learning portal for lessons, quizzes, and learning progress."
+    >
+
+    <title>Learnova | Student Learning Portal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
 
+    <!-- ================================
+         HEADER
+         ================================ -->
+
     <header>
+
         <nav>
-            <a href="index.html">Learnova</a>
+
+            <a href="index.html" aria-label="Learnova Home">
+                <strong>Learnova</strong>
+            </a>
 
             <ul>
+
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.html" aria-current="page">
+                        Home
+                    </a>
                 </li>
 
                 <li>
-                    <a href="pages/subjects.html">Subjects</a>
+                    <a href="pages/subjects.html">
+                        Subjects
+                    </a>
                 </li>
 
                 <li>
-                    <a href="pages/progress.html">Progress</a>
+                    <a href="pages/lessons.html">
+                        Lessons
+                    </a>
                 </li>
+
+                <li>
+                    <a href="pages/quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/progress.html">
+                        Progress
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
 
 
+    <!-- ================================
+         MAIN CONTENT
+         ================================ -->
+
     <main>
 
-        <section>
+        <!-- ============================
+             HERO SECTION
+             ============================ -->
 
-            <p>Learn. Practice. Grow.</p>
+        <section class="hero">
 
-            <h1>
-                Learn better with Learnova
-            </h1>
+            <div class="hero-content">
 
-            <p>
-                A simple learning platform designed to
-                help students learn, practice, and track progress.
-            </p>
+                <p>Welcome to Learnova</p>
 
-            <a href="pages/subjects.html">
-                Start Learning
-            </a>
+                <h1>
+                    Learn Better.
+                    Practice More.
+                    Grow Faster.
+                </h1>
+
+                <p>
+                    A simple learning platform for students
+                    to study lessons, practice quizzes,
+                    and track their learning progress.
+                </p>
+
+                <a href="pages/subjects.html">
+                    Start Learning
+                </a>
+
+            </div>
 
         </section>
 
 
-        <section>
+        <!-- ============================
+             SUBJECTS SECTION
+             ============================ -->
 
-            <h2>Explore Subjects</h2>
+        <section class="subjects-section">
 
-            <article>
-                <h3>Mathematics</h3>
+            <div class="section-header">
 
-                <p>
-                    Learn numbers, algebra, geometry, and more.
-                </p>
+                <p>Explore</p>
 
-                <a href="pages/lessons.html">
-                    View Lessons
-                </a>
-            </article>
-
-
-            <article>
-                <h3>Science</h3>
+                <h2>Subjects</h2>
 
                 <p>
-                    Explore the world through science.
+                    Choose a subject and start learning.
                 </p>
 
-                <a href="pages/lessons.html">
-                    View Lessons
-                </a>
-            </article>
+            </div>
 
 
-            <article>
-                <h3>English</h3>
+            <div class="subject-grid">
 
-                <p>
-                    Improve reading, writing, and communication.
-                </p>
+                <!-- Mathematics -->
 
-                <a href="pages/lessons.html">
-                    View Lessons
-                </a>
-            </article>
+                <article class="subject-card">
+
+                    <h3>Mathematics</h3>
+
+                    <p>
+                        Learn algebra, equations,
+                        fractions, geometry and more.
+                    </p>
+
+                    <a href="pages/lessons.html">
+                        View Lessons
+                    </a>
+
+                </article>
+
+
+                <!-- Science -->
+
+                <article class="subject-card">
+
+                    <h3>Science</h3>
+
+                    <p>
+                        Explore important science
+                        concepts through simple lessons.
+                    </p>
+
+                    <a href="pages/lessons.html">
+                        View Lessons
+                    </a>
+
+                </article>
+
+
+                <!-- English -->
+
+                <article class="subject-card">
+
+                    <h3>English</h3>
+
+                    <p>
+                        Improve grammar, vocabulary,
+                        reading and communication.
+                    </p>
+
+                    <a href="pages/lessons.html">
+                        View Lessons
+                    </a>
+
+                </article>
+
+            </div>
 
         </section>
 
 
-        <section>
+        <!-- ============================
+             PROGRESS PREVIEW
+             ============================ -->
 
-            <h2>Your Learning Progress</h2>
+        <section class="progress-preview">
 
-            <p>
-                Keep learning and complete your lessons.
-            </p>
+            <div class="section-header">
 
-            <p>
-                Lessons completed:
-                <strong>0 / 30</strong>
-            </p>
+                <p>Your Learning</p>
 
-            <a href="pages/progress.html">
-                View Progress
-            </a>
+                <h2>Track Your Progress</h2>
+
+                <p>
+                    See your completed lessons
+                    and quiz performance in one place.
+                </p>
+
+                <a href="pages/progress.html">
+                    View Progress
+                </a>
+
+            </div>
 
         </section>
 
     </main>
 
 
+    <!-- ================================
+         FOOTER
+         ================================ -->
+
     <footer>
 
         <p>
-            &copy; 2026 Learnova. All rights reserved.
+            &copy; 2026 Learnova.
+            All rights reserved.
         </p>
 
     </footer>
