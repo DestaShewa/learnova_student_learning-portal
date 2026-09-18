@@ -10,6 +10,16 @@
         content="Track your learning progress and quiz performance on Learnova."
     >
 
+    <meta
+        name="author"
+        content="Learnova"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
     <title>Progress | Learnova</title>
 
     <link rel="stylesheet" href="../css/style.css">
@@ -19,19 +29,53 @@
 <body>
 
     <header>
-        <nav>
-            <a href="../index.html" aria-label="Learnova Home">
+
+        <nav aria-label="Main navigation">
+
+            <a
+                href="../index.html"
+                aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="subjects.html">Subjects</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="progress.html" aria-current="page">Progress</a></li>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subjects.html">
+                        Subjects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lessons.html">
+                        Lessons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="progress.html"
+                        aria-current="page">
+                        Progress
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
 
     <main>
@@ -39,19 +83,25 @@
         <section>
 
             <div class="section-header">
+
                 <p>Learnova</p>
 
-                <h1>Your Progress</h1>
+                <h1>
+                    Your Progress
+                </h1>
 
                 <p>
                     Track your lessons, subjects
                     and quiz performance.
                 </p>
+
             </div>
 
             <section>
 
-                <h2>Overall Progress</h2>
+                <h2>
+                    Overall Progress
+                </h2>
 
                 <p data-overall-progress>
                     0% Complete
@@ -68,7 +118,9 @@
 
             <section>
 
-                <h2>Subject Progress</h2>
+                <h2>
+                    Subject Progress
+                </h2>
 
                 <table>
 
@@ -77,12 +129,25 @@
                     </caption>
 
                     <thead>
+
                         <tr>
-                            <th scope="col">Subject</th>
-                            <th scope="col">Completed</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Progress</th>
+                            <th scope="col">
+                                Subject
+                            </th>
+
+                            <th scope="col">
+                                Completed
+                            </th>
+
+                            <th scope="col">
+                                Total
+                            </th>
+
+                            <th scope="col">
+                                Progress
+                            </th>
                         </tr>
+
                     </thead>
 
                     <tbody></tbody>
@@ -91,23 +156,27 @@
 
             </section>
 
-          <section>
+            <section>
 
-    <h2>Quiz Performance</h2>
+                <h2>
+                    Quiz Performance
+                </h2>
 
-    <p data-quiz-score>
-        Latest Score: 0%
-    </p>
+                <p data-quiz-score>
+                    Latest Score: 0%
+                </p>
 
-    <p data-quiz-completed>
-        Quizzes Completed: 0
-    </p>
+                <p data-quiz-completed>
+                    Quizzes Completed: 0
+                </p>
 
-</section>
+            </section>
 
             <section>
 
-                <h2>Continue Learning</h2>
+                <h2>
+                    Continue Learning
+                </h2>
 
                 <p>
                     Continue your Mathematics lessons
@@ -119,31 +188,37 @@
                 </a>
 
             </section>
+
             <section>
 
-    <h2>Reset Progress</h2>
+                <h2>
+                    Reset Progress
+                </h2>
 
-    <p>
-        Clear your saved lessons and quiz results.
-    </p>
+                <p>
+                    Clear your saved lessons
+                    and quiz results.
+                </p>
 
-    <button
-        type="button"
-        id="reset-progress">
-        Reset Progress
-    </button>
+                <button
+                    type="button"
+                    id="reset-progress">
+                    Reset Progress
+                </button>
 
-</section>
+            </section>
 
         </section>
 
     </main>
 
     <footer>
+
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
+
     </footer>
 
     <script src="../js/data.js"></script>
@@ -151,4 +226,5 @@
     <script src="../js/progress.js"></script>
 
 </body>
+
 </html>

@@ -10,6 +10,16 @@
         content="Test your Mathematics knowledge with Learnova quizzes."
     >
 
+    <meta
+        name="author"
+        content="Learnova"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
     <title>Quiz | Learnova</title>
 
     <link rel="stylesheet" href="../css/style.css">
@@ -19,19 +29,53 @@
 <body>
 
     <header>
-        <nav>
-            <a href="../index.html" aria-label="Learnova Home">
+
+        <nav aria-label="Main navigation">
+
+            <a
+                href="../index.html"
+                aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="subjects.html">Subjects</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="quiz.html" aria-current="page">Quiz</a></li>
-                <li><a href="progress.html">Progress</a></li>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subjects.html">
+                        Subjects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lessons.html">
+                        Lessons
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="quiz.html"
+                        aria-current="page">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="progress.html">
+                        Progress
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
 
     <main>
@@ -39,25 +83,38 @@
         <section>
 
             <div class="section-header">
+
                 <p>Mathematics</p>
 
-                <h1>Quiz</h1>
+                <h1>
+                    Quiz
+                </h1>
 
                 <p>
                     Test your understanding
-                    and see how much you have learned.
+                    and see what you have learned.
                 </p>
+
             </div>
 
-            <form id="quiz-form"></form>
+            <form
+                id="quiz-form"
+                aria-live="polite">
+            </form>
 
-            <div id="quiz-result">
-                <h2>Result</h2>
+            <div
+                id="quiz-result"
+                aria-live="polite">
+
+                <h2>
+                    Result
+                </h2>
 
                 <p>
                     Answer all questions and submit
                     the quiz to see your score.
                 </p>
+
             </div>
 
         </section>
@@ -65,10 +122,12 @@
     </main>
 
     <footer>
+
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
+
     </footer>
 
     <script src="../js/data.js"></script>
@@ -76,4 +135,5 @@
     <script src="../js/quiz.js"></script>
 
 </body>
+
 </html>

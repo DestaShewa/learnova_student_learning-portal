@@ -7,7 +7,17 @@
 
     <meta
         name="description"
-        content="Learnova is a simple student learning portal for lessons, quizzes, and learning progress."
+        content="Learnova is a student learning portal for lessons, quizzes, and learning progress."
+    >
+
+    <meta
+        name="author"
+        content="Learnova"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
     >
 
     <title>Learnova | Student Learning Portal</title>
@@ -19,29 +29,62 @@
 <body>
 
     <header>
-        <nav>
-            <a href="index.html" aria-label="Learnova Home">
+        <nav aria-label="Main navigation">
+
+            <a
+                href="index.html"
+                aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="pages/subjects.html">Subjects</a></li>
-                <li><a href="pages/lessons.html">Lessons</a></li>
-                <li><a href="pages/quiz.html">Quiz</a></li>
-                <li><a href="pages/progress.html">Progress</a></li>
+                <li>
+                    <a
+                        href="index.html"
+                        aria-current="page">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/subjects.html">
+                        Subjects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/lessons.html">
+                        Lessons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/progress.html">
+                        Progress
+                    </a>
+                </li>
             </ul>
+
         </nav>
     </header>
 
     <main>
 
-        <section class="hero">
+        <section
+            class="hero"
+            aria-labelledby="hero-title">
+
             <div class="hero-content">
 
                 <p>Welcome to Learnova</p>
 
-                <h1>
+                <h1 id="hero-title">
                     Learn Better.
                     Practice More.
                     Grow Faster.
@@ -58,15 +101,20 @@
                 </a>
 
             </div>
+
         </section>
 
-        <section class="subjects-section">
+        <section
+            class="subjects-section"
+            aria-labelledby="subjects-title">
 
             <div class="section-header">
 
                 <p>Explore</p>
 
-                <h2>Subjects</h2>
+                <h2 id="subjects-title">
+                    Subjects
+                </h2>
 
                 <p>
                     Choose a subject and start learning.
@@ -125,13 +173,17 @@
 
         </section>
 
-        <section class="progress-preview">
+        <section
+            class="progress-preview"
+            aria-labelledby="progress-title">
 
             <div class="section-header">
 
                 <p>Your Learning</p>
 
-                <h2>Track Your Progress</h2>
+                <h2 id="progress-title">
+                    Track Your Progress
+                </h2>
 
                 <p data-home-progress>
                     0% Complete
@@ -148,14 +200,17 @@
     </main>
 
     <footer>
+
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
+
     </footer>
 
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
 
 </body>
+
 </html>

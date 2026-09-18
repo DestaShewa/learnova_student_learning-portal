@@ -10,6 +10,16 @@
         content="Explore Mathematics lessons on Learnova."
     >
 
+    <meta
+        name="author"
+        content="Learnova"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
     <title>Lessons | Learnova</title>
 
     <link rel="stylesheet" href="../css/style.css">
@@ -19,52 +29,124 @@
 <body>
 
     <header>
-        <nav>
-            <a href="../index.html" aria-label="Learnova Home">
+
+        <nav aria-label="Main navigation">
+
+            <a
+                href="../index.html"
+                aria-label="Learnova Home">
                 <strong>Learnova</strong>
             </a>
 
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="subjects.html">Subjects</a></li>
-                <li><a href="lessons.html" aria-current="page">Lessons</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="progress.html">Progress</a></li>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="subjects.html">
+                        Subjects
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="lessons.html"
+                        aria-current="page">
+                        Lessons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quiz.html">
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="progress.html">
+                        Progress
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
+
     </header>
 
     <main>
 
-        <section>
+       <section>
 
-            <div class="section-header">
-                <p>Mathematics</p>
+    <div class="section-header">
 
-                <h1>Lessons</h1>
+        <p>Mathematics</p>
 
-                <p>
-                    Choose a lesson and start
-                    building your knowledge.
-                </p>
-            </div>
+        <h1>
+            Lessons
+        </h1>
 
-            <div class="lesson-list"></div>
+        <p>
+            Search, explore and complete your lessons.
+        </p>
 
-            <div>
-                <a href="quiz.html">Take Quiz</a>
-                <a href="progress.html">View Progress</a>
-            </div>
+    </div>
 
-        </section>
+    <!-- SEARCH -->
 
+    <div class="lesson-search">
+
+        <label for="lesson-search-input">
+            Search lessons
+        </label>
+
+        <input
+            type="search"
+            id="lesson-search-input"
+            placeholder="Search by lesson title..."
+            autocomplete="off"
+        >
+
+        <p
+            id="lesson-search-result"
+            aria-live="polite">
+        </p>
+
+    </div>
+
+    <!-- LESSON LIST -->
+
+    <div
+        class="lesson-list"
+        aria-live="polite">
+    </div>
+
+    <div>
+
+        <a href="quiz.html">
+            Take Quiz
+        </a>
+
+        <a href="progress.html">
+            View Progress
+        </a>
+
+    </div>
+
+</section>
     </main>
 
     <footer>
+
         <p>
             &copy; 2026 Learnova.
             All rights reserved.
         </p>
+
     </footer>
 
     <script src="../js/data.js"></script>
@@ -72,4 +154,5 @@
     <script src="../js/lessons.js"></script>
 
 </body>
+
 </html>
